@@ -13,3 +13,5 @@ ln -fs "${HERE}/etc/uwsgi.ini"  "${PREFIX}/etc/uwsgi/uwsgi.ini"
 
 sysrc nginx_enable="YES"
 sysrc uwsgi_enable="YES"
+
+su -l postgres psql < "${HERE}/install.sql"
