@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(
-    name='django-setup',
+    name='django-example',
     version='0.0.0',
     description='Django Example',
     author='Polish BSD Users Group',
