@@ -3,8 +3,10 @@
 PREFIX="/usr/local"
 FILE="$(realpath "${0}")"
 HERE="$(dirname "${FILE}")"
+PYTHON="python3.6"
 
-#python setup.py install
+"${PYTHON}" example/manage.py collectstatic --no-input
+
 mkdir -p "${PREFIX}/etc/nginx"
 mkdir -p "${PREFIX}/etc/uwsgi"
 
