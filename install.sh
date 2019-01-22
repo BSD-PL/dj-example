@@ -5,6 +5,11 @@ FILE="$(realpath "${0}")"
 HERE="$(dirname "${FILE}")"
 PYTHON="python3.6"
 
+die() {
+	echo "${@}" >&2
+	exit 1
+}
+
 mkdir -p "${PREFIX}/etc/nginx"
 mkdir -p "${PREFIX}/etc/uwsgi"
 
@@ -16,6 +21,8 @@ sysrc uwsgi_enable="YES"
 
 psql -U postgres -h db < "${HERE}/install.sql"
 
-"${PYTHON}" "${HERE}/setup.py" install
-"${PYTHON}" -m example.manage collectstatic --no-input
-"${PYTHON}" -m example.manage migrate
+"${PYTHON}" "${HERE}/setup.py" install || die "Could not install application."
+"${PYTHON}" -m example.manage collectstatic --no-input ||
+	die "Could not generate static files."
+"${PYTHON}" -m example.manage migrate ||
+	die "Could not create database schema."
