@@ -13,8 +13,8 @@ die() {
 mkdir -p "${PREFIX}/etc/nginx"
 mkdir -p "${PREFIX}/etc/uwsgi"
 
-ln -fs "${HERE}/etc/nginx.conf" "${PREFIX}/etc/nginx/nginx.conf"
-ln -fs "${HERE}/etc/uwsgi.ini"  "${PREFIX}/etc/uwsgi/uwsgi.ini"
+cp -f "${HERE}/etc/nginx.conf" "${PREFIX}/etc/nginx/nginx.conf"
+cp -f "${HERE}/etc/uwsgi.ini"  "${PREFIX}/etc/uwsgi/uwsgi.ini"
 
 sysrc nginx_enable="YES"
 sysrc uwsgi_enable="YES"
