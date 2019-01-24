@@ -3,6 +3,6 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
+    path('polls/', include('example.polls.urls')),
     path('admin/', admin.site.urls),
 ]
