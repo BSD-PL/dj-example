@@ -28,3 +28,5 @@ psql -U postgres -h db < "${HERE}/install.sql"
 	die "Could not create database schema."
 "${PYTHON}" -m example.manage loaddata "${HERE}/fixture.json" ||
 	die "Could not populate database."
+
+echo "Installation completed successfully."
