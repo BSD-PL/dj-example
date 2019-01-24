@@ -12,6 +12,7 @@ setup(
         'example',
         'example.polls',
     ],
+    include_package_data=True,
     install_requires=[
         'django==2.1.5',
         'psycopg2==2.7.6.1',

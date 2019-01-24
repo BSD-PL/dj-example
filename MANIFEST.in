@@ -1,0 +1,2 @@
+recursive-include example/polls/templates *
+recursive-include example/templates *
