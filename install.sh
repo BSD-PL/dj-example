@@ -19,8 +19,6 @@ cp -f "${HERE}/etc/uwsgi.ini"  "${PREFIX}/etc/uwsgi/uwsgi.ini"
 sysrc nginx_enable="YES"
 sysrc uwsgi_enable="YES"
 
-psql -U postgres -h db < "${HERE}/install.sql"
-
 "${PYTHON}" "${HERE}/setup.py" install || die "Could not install application."
 "${PYTHON}" -m example.manage collectstatic --no-input ||
 	die "Could not generate static files."
